@@ -1,0 +1,21 @@
+{
+    "name": "corycollier/gitlab-cloner",
+    "description": "Package to help clone a bunch of repos at one time",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cory Collier",
+            "email": "corycollier@corycollier.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "GitlabTools\\": "src/"
+        }
+    }
+}
