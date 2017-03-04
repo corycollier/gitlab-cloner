@@ -14,3 +14,6 @@ $app = new Cloner([
 ]);
 $app->getRepos();
 ```
+
+## Releases
+* 1.0.0 - Allows for the bulk cloning of repos, by group name
