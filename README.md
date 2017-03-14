@@ -10,7 +10,7 @@ $app = new Cloner([
     'server'    => 'https://gitlab.my-personal-domain.com',
     'token'     => 'my secret token that I got from gitlab',
     'group'     => 'consumer-web',
-    'directory' => '/path/to/my/repositories''
+    'directory' => '/path/to/my/repositories'
 ]);
 $app->getRepos();
 ```
