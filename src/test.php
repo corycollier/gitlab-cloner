@@ -1,20 +1,43 @@
 <?php
+namespace GitTools;
 require 'vendor/autoload.php';
 
-use \GitlabTools\Cloner;
-use \GitlabTools\FetchAction;
-use \GitlabTools\PullAction;
-use \GitlabTools\GarbageCollectionAction;
-use \GitlabTools\PruneOriginAction;
+
+use GitTools\RepositoryIterator;
+use GitTools\RepositoryFactory;
+use GitTools\Strategy\FetchAndPullStrategy;
+use GitTools\Strategy\CleanUpStrategy;
 
 //
 // $app = new Cloner([
-//     'server'    => 'https://gitlab.floridahospital.org',
+//     'server'    => 'https://code.clwtr.com',
 //     'token'     => 'szssBPW4k-pY71WwNkUC',
 //     'group'     => 'consumer-web',
-//     'directory' => '/home/cory/Repositories/'
+//     'directory' => '/Users/corycollier/Repositories'
 // ]);
 // $app->getRepos();
 
-$action = new PullAction;
-$action->iterate(new \DirectoryIterator('/home/cory/Repositories'));
+
+$iterator = new RepositoryIterator('/Users/corycollier/Repositories');
+$strategy = new CleanUpStrategy();
+$factory = new RepositoryFactory();
+foreach ($iterator as $directory) {
+    if ($iterator->isRepository()) {
+        $repo = $factory->factory($directory);
+        $strategy->execute($repo);
+    }
+}
+//
+//
+// $iterator = new \DirectoryIterator('/Users/corycollier/Repositories');
+//
+//
+// $actions = [
+//     new FetchAction(),
+//     new PullAction(),
+//     new PruneOriginAction(),
+// ];
+//
+// foreach ($actions as $action) {
+//     $action->iterate($iterator);
+// }
