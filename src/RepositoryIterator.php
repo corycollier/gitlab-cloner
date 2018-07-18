@@ -19,5 +19,4 @@ class RepositoryIterator extends \DirectoryIterator
         }
         return false;
     }
-
 }

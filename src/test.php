@@ -27,17 +27,3 @@ foreach ($iterator as $directory) {
         $strategy->execute($repo);
     }
 }
-//
-//
-// $iterator = new \DirectoryIterator('/Users/corycollier/Repositories');
-//
-//
-// $actions = [
-//     new FetchAction(),
-//     new PullAction(),
-//     new PruneOriginAction(),
-// ];
-//
-// foreach ($actions as $action) {
-//     $action->iterate($iterator);
-// }
